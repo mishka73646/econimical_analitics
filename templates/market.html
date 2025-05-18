@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Биржевая активность</h2>
+<div class="card p-3 mb-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Тикер</th>
+                <th>Цена</th>
+                <th>Изменение (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stock in market_data %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.price }}</td>
+                <td class="{% if stock.change > 0 %}text-success{% elif stock.change < 0 %}text-danger{% endif %}">
+                    {{ stock.change }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="card p-3">
+    <h5>Совет дня:</h5>
+    <p>{{ advice }}</p>
+</div>
+{% endblock %}

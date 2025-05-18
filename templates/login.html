@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-body">
+        <h3 class="card-title mb-3">Вход</h3>
+        <form method="post">
+            <div class="mb-3">
+                <label>Имя пользователя</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Пароль</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <button class="btn btn-primary w-100 mb-2">Войти</button>
+        </form>
+        <a href="{{ url_for('demo_login') }}" class="btn btn-outline-secondary w-100">Демо-вход</a>
+        <p class="mt-2 text-muted text-center" style="font-size:small;">(логин: demo, пароль: demo)</p>
+    </div>
+</div>
+{% endblock %}

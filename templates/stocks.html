@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Акции {{ symbol }}</h2>
+<div class="alert alert-info">
+    <strong>Тренд:</strong> {{ trend }} | <strong>Совет:</strong> {{ advice }}
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Цена закрытия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in stock_data %}
+        <tr>
+            <td>{{ row.index }}</td>
+            <td>{{ row["4. close"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
